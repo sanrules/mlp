@@ -24,6 +24,6 @@ import java.util.Date;
         this.id = id;
         this.name = name;
         this.surname = surname;
-        this.email = email;;
+        this.email = email;
     }
 }

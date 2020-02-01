@@ -7,7 +7,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-@SpringBootApplication public class MariscosLaPazApplication {
+@SpringBootApplication
+public class MariscosLaPazApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(MariscosLaPazApplication.class, args);
@@ -15,8 +16,9 @@ import org.springframework.context.annotation.Bean;
 
     }
 
-    @Bean public CommandLineRunner demo(UserRepository userRepo) {
-        return (args) -> {
+    @Bean
+    public CommandLineRunner demo(UserRepository userRepo) {
+        return args -> {
             userRepo.save(new User("09098426V", "Álvaro", "Madrid", "amadridf94@gmail.com"));
             userRepo.save(new User("02292668M", "Sandra", "Cerro", "sankiry93@gmail.com"));
 

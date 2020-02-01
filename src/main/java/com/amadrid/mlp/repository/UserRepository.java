@@ -16,6 +16,6 @@ public interface UserRepository extends CrudRepository<User, Long> {
 
     List<User> findByName(String name);
 
-    @Query(value = "SELECT  * FROM User u WHERE u.id LIKE :id", nativeQuery = true)
+    @Query(value = "SELECT  * FROM user u WHERE u.id LIKE :id", nativeQuery = true)
     List<User> findUserByIdContaining(@Param("id") String id);
 }
