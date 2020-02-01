@@ -1,0 +1,3 @@
+INSERT INTO mlp.user (id, name, surname, email, birth_date, phone_number) VALUES ('01234678F', 'Fry', 'El Gato', null, null, null);
+INSERT INTO mlp.user (id, name, surname, email, birth_date, phone_number) VALUES ('02292668M', 'Sandra', 'Cerro', 'sankiry93@gmail.com', null, null);
+INSERT INTO mlp.user (id, name, surname, email, birth_date, phone_number) VALUES ('09098426V', 'Álvaro', 'Madrid', 'amadridf94@gmail.com', null, null);
