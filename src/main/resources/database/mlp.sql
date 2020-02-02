@@ -10,7 +10,8 @@ create table if not exists product
     id      bigint auto_increment
         primary key,
     name    varchar(50) null,
-    variety varchar(50) null
+    variety varchar(50) null,
+    description varchar(500) null
 );
 
 create table if not exists product_category
