@@ -6,20 +6,20 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.math.BigInteger;
 import java.util.Date;
 
-@Entity // JPA entity -> Mapped to a User table in DB
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class User {
+public class ProductPrice {
 
     @Id
-    private String id;
-    private String name;
-    private String surname;
-    private String email;
-    private Date birthDate;
-    private String phoneNumber;
+    private Date date;
+    @Id
+    private BigInteger idProduct;
+    private float costPrice;
+    private float sellPrice;
 
 }
