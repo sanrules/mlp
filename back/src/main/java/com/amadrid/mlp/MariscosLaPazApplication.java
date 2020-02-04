@@ -10,4 +10,5 @@ public class MariscosLaPazApplication {
         SpringApplication.run(MariscosLaPazApplication.class, args);
     }
 
+    // comentario
 }
