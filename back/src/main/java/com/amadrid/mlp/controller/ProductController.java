@@ -29,7 +29,8 @@ import java.util.List;
         return mapperToDto(productRepository.findProductById(new BigInteger(id)));
     }
 
-    @GetMapping("/all") public List<ProductCategoryDto> getAll() {
+    @GetMapping("/all")
+    public List<ProductCategoryDto> getAll() {
 
         List<ProductCategoryDto> productList = new ArrayList<>();
         List<Product> products = productRepository.findAll();
