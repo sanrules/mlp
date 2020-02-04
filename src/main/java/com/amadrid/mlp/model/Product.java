@@ -4,9 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.math.BigInteger;
-import java.util.List;
 
 @Entity
 @AllArgsConstructor
@@ -19,7 +20,4 @@ public class Product {
     private String name;
     private String variety;
     private String description;
-
-    @OneToMany(targetEntity = ProductCategory.class)
-    private List categoryList;
 }
