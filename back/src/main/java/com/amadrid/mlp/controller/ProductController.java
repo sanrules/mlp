@@ -23,6 +23,7 @@ import java.util.List;
 
     @Autowired CategoryRepository categoryRepository;
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/{idProduct}")
     public ProductCategoryDto getProduct(@PathVariable("idProduct") String id) {
 
