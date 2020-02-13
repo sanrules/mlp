@@ -1,10 +1,15 @@
 <template>
-    <div class="row">
-        <router-link :to="{ name: 'productDetail', params: { id: p.id }}" tag="div"
-                     class="card col-md-3" v-for="(p, key) in product" v-bind:key="key">
-            <div class="card-body">
-                <h4 class="card-title">{{ p.name }} {{ p.variety }} </h4>
-                <p class="card-text">{{ p.description }}</p>
+    <div>
+        <router-link class="card" tag="div"
+                     :to="{ name: 'productDetail', params: { id: product.id }}">
+            <div class="card-body text-center">
+                <h4 class="card-title align-content-center">{{ product.name }} {{ product.variety }}</h4>
+                <p class="card-text text-center overflow-auto">{{ product.description }}</p>
+                <div class="b-form-tags" v-for="(category,key) in product.categories" v-bind:key="key">
+                    <b-icon-tag/>
+                    {{ category.description }}
+                </div>
+
             </div>
         </router-link>
     </div>
@@ -12,31 +17,31 @@
 </template>
 
 <script>
-		import axios from 'axios';
-
-		const SERVER_URL = 'http://localhost:8080/products';
-		const instance   = axios.create({ baseURL: SERVER_URL, timeout: 10000 });
-
 		export default {
-				name : "Product",
-				props: [ 'link' ],
-
-				data() {
-						return {
-								product: {}
-						}
-				},
-				methods: {
-						productDetail() {
-								//let link = p._links.self.href;
-						}
-				},
-				created() {
-						instance.get('all').then(response => this.product = response.data);
-				},
-		}
+						name : "Product",
+						props: {
+								product: {
+										name       : String,
+										description: String,
+										categories : Array,
+								}
+						},
+						data() {
+								return {
+										productDetail: {}
+								}
+						},
+				}
 </script>
 
 <style scoped>
+    .card {
+        width: 300px;
+        height: 300px;
+    }
+
+    .card-text {
+        height: 65%;
+    }
 
 </style>

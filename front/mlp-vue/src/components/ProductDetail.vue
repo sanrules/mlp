@@ -1,31 +1,39 @@
 <template>
-
-    <div class="card-body">
-        <h4 class="card-title">{{ productDetail.name }} {{ productDetail.variety }} </h4>
-        <div class="card-text">{{ productDetail.description }}
-            <h5> Categorías: </h5>
-            <p v-for="(cat, key) in productDetail.categories" v-bind:key="key">
-                {{ cat.description }}
-            </p>
+    <div>
+        <Navbar/>
+        <div class="container-fluid">
+            <div class="card-body text-left">
+                <h4 class="card-title">{{ productDetail.name }} {{ productDetail.variety }} </h4>
+                <div class="card-text">{{ productDetail.description }}
+                    <h5> Categorías: </h5>
+                    <p v-for="(cat, key) in productDetail.categories" v-bind:key="key">
+                        {{ cat.description }}
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
-
 </template>
 
 <script>
-		import axios from 'axios';
+		import { instance } from '../variables';
+		import Navbar       from './Navbar';
 
 		export default {
-				name : "ProductDetail.vue",
-				props: [ 'id' ],
+				name      : "ProductDetail.vue",
+				components: { Navbar },
+				props     : [ 'id' ],
 				data() {
 						return {
 								productDetail: {}
 						}
 				},
 				beforeMount() {
-						axios.get('http://localhost:8080/products/' + this.id).then(response => this.productDetail = response.data);
-				}
+						instance.get('products/' + this.id).then(response => this.productDetail = response.data).catch(function(error) {
+								console.log(error);
+						});
+				},
+
 		}
 </script>
 
