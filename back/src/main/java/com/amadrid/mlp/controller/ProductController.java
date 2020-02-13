@@ -5,18 +5,17 @@ import com.amadrid.mlp.model.Product;
 import com.amadrid.mlp.model.ProductCategory;
 import com.amadrid.mlp.repository.CategoryRepository;
 import com.amadrid.mlp.repository.ProductRepository;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("product")
+@RequestMapping("products")
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
 public class ProductController {
 
     @Autowired
@@ -28,7 +27,6 @@ public class ProductController {
     @Autowired
     CategoryRepository categoryRepository;
 
-    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/{idProduct}")
     public ProductCategoryDto getProduct(
             @PathVariable("idProduct")
@@ -40,7 +38,7 @@ public class ProductController {
     @GetMapping("/all")
     public List<ProductCategoryDto> getAll() {
 
-        List<ProductCategoryDto> productList = new ArrayList<ProductCategoryDto>();
+        List<ProductCategoryDto> productList = new ArrayList<>();
         List<Product> products = productRepository.findAll();
 
         for (Product product : products) {
