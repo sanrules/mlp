@@ -15,17 +15,24 @@ import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
-@RestController @RequestMapping("product") public class ProductController {
+@RestController
+@RequestMapping("product")
+public class ProductController {
 
-    @Autowired ProductCategoryDto productCategoryDto;
+    @Autowired
+    ProductCategoryDto productCategoryDto;
 
-    @Autowired ProductRepository productRepository;
+    @Autowired
+    ProductRepository productRepository;
 
-    @Autowired CategoryRepository categoryRepository;
+    @Autowired
+    CategoryRepository categoryRepository;
 
     @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/{idProduct}")
-    public ProductCategoryDto getProduct(@PathVariable("idProduct") String id) {
+    public ProductCategoryDto getProduct(
+            @PathVariable("idProduct")
+                    String id) {
 
         return mapperToDto(productRepository.findProductById(new BigInteger(id)));
     }
@@ -33,7 +40,7 @@ import java.util.List;
     @GetMapping("/all")
     public List<ProductCategoryDto> getAll() {
 
-        List<ProductCategoryDto> productList = new ArrayList<>();
+        List<ProductCategoryDto> productList = new ArrayList<ProductCategoryDto>();
         List<Product> products = productRepository.findAll();
 
         for (Product product : products) {
@@ -51,8 +58,7 @@ import java.util.List;
         productCategoryDto.setDescription(product.getDescription());
         productCategoryDto.setVariety(product.getVariety());
 
-        productCategoryDto
-            .setCategories(categoryRepository.findCategories(product.getId().toString()));
+        productCategoryDto.setCategories(categoryRepository.findCategories(product.getId().toString()));
 
         return productCategoryDto;
     }
