@@ -8,7 +8,7 @@ public class SpringRestConfiguration implements RepositoryRestConfigurer {
     @Override
     public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
 
-        config.setDefaultMediaType(MediaType.APPLICATION_JSON);
-        config.useHalAsDefaultJsonMediaType(false);
+        //config.setDefaultMediaType(MediaType.APPLICATION_JSON);
+        //config.useHalAsDefaultJsonMediaType(false);
     }
 }
