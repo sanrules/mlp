@@ -1,6 +1,5 @@
 <template>
     <div>
-        <Navbar/>
         <div class="container-fluid">
             <div class="card-body text-left">
                 <h4 class="card-title">{{ productDetail.name }} {{ productDetail.variety }} </h4>
@@ -17,11 +16,10 @@
 
 <script>
 		import { instance } from '../variables';
-		import Navbar       from './Navbar';
 
 		export default {
 				name      : "ProductDetail.vue",
-				components: { Navbar },
+				components: { },
 				props     : [ 'id' ],
 				data() {
 						return {

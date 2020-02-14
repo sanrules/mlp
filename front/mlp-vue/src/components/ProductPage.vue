@@ -1,6 +1,5 @@
 <template>
     <div>
-        <Navbar/>
         <div class="container-fluid text-center">
             <Product
                     triggers="hover"
@@ -13,13 +12,12 @@
 </template>
 
 <script>
-		import Navbar       from './Navbar';
 		import Product      from './Product';
 		import { instance } from '../variables';
 
 		export default {
 				name      : "LandPage",
-				components: { Navbar, Product },
+				components: { Product },
 				props     : {
 						products: {
 								product: Product,
