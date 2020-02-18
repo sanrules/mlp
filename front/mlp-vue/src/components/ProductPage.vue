@@ -20,6 +20,16 @@ export default {
   props: {
     products: {
       product: Product
+    },
+    title: {
+      type: String,
+      default: "Productos"
+    }
+  },
+  methods: {
+    emitTitle(title) {
+      this.$emit("title", title);
+      console.log(title);
     }
   },
   beforeMount() {
@@ -36,5 +46,4 @@ export default {
 };
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

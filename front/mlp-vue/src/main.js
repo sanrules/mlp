@@ -19,18 +19,34 @@ const router = new VueRouter({
 			path: '/',
 			name: 'home',
 			component: () => import('./components/ProductPage'),
+			meta: {
+				title: "Mariscos La Paz",
+				Auth: "Sandra Cerro"
+			},
+			props: {
+				title: "Productos"
+			}
 		},
 		{
 			path: '/productDetail/:id?',
 			name: 'productDetail',
 			component: () => import('./components/ProductDetail'),
-			props: true
+			props: true,
+			meta: {
+				title: "Mariscos La Paz",
+				Auth: "Sandra Cerro"
+			}
 		},
 		{
 			path: '*',
 			redirect: '/'
 		}
 	]
+});
+
+router.beforeEach((to, from, next) => {
+	document.title = to.meta.title;
+	next();
 });
 
 new Vue({

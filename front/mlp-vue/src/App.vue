@@ -3,7 +3,7 @@
     <Navbar />
     <div class="container-fluid text-center">
       <div class>
-        <h2>Productos</h2>
+        <h2>{{ title }}</h2>
       </div>
       <router-view></router-view>
     </div>
@@ -17,7 +17,15 @@ import Footer from "./components/Footer";
 
 export default {
   name: "App",
-  components: { Navbar, Footer }
+  components: { Navbar, Footer },
+  props: ["title"],
+  methods: {
+    obtainTitle(title) {
+      console.log("El título");
+      console.log(title);
+      this.title = title;
+    }
+  }
 };
 </script>
 
